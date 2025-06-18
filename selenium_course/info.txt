@@ -1,0 +1,16 @@
+alert = browser.switch_to.alert
+alert.accept()
+alert = browser.switch_to.alert
+alert_text = alert.text
+confirm = browser.switch_to.alert
+confirm.accept()
+Для confirm-окон можно использовать следующий метод для отказа:
+confirm.dismiss()
+Третий вариант модального окна — prompt — имеет дополнительное поле для ввода текста. Чтобы ввести текст, используйте метод send_keys():
+prompt = browser.switch_to.alert
+prompt.send_keys("My answer")
+prompt.accept()
+browser.switch_to.window(window_name)
+Чтобы узнать имя новой вкладки, нужно использовать метод window_handles, который возвращает массив имён всех вкладок.
+new_window = browser.window_handles[1]
+first_window = browser.window_handles[0]
